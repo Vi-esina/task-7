@@ -6,10 +6,16 @@
     <title></title>
 </head>
 <body>
-<div>
-    <th:block th:each="msg : ${messages}">
-        <h1 th:text="${msg}"></h1>
-    </th:block>
-</div>
+<h2>All Person</h2>
+<a href="/add">Add Person</a>
+<br>
+<table>
+    <tr th:each="msg : ${messages}">
+        <td th:text="${msg}"></td>
+        <td><a th:href="@{/update/{id}(id=${msg.id})}" style="margin-left: 10px;">Update</a></td>
+        <td><a th:href="@{/delete/{id}(id=${msg.id})}" style="margin-left: 10px;">Delete</a></td>
+    </tr>
+</table>
+
 </body>
 </html>
