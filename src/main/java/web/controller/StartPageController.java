@@ -14,7 +14,7 @@ import web.service.PersonService;
 import java.util.List;
 
 @Controller
-public class StartPage {
+public class StartPageController {
 
     @Autowired
     PersonService personService;

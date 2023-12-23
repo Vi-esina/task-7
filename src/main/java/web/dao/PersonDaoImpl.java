@@ -3,6 +3,7 @@ package web.dao;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 import web.model.Person;
 
@@ -15,6 +16,7 @@ import java.util.List;
 public class PersonDaoImpl implements PersonDao{
 
     @Autowired
+    @Qualifier("getSessionFactory")
     private SessionFactory sessionFactory;
 
     @Override
@@ -24,7 +26,6 @@ public class PersonDaoImpl implements PersonDao{
     @Override
     @SuppressWarnings("unchecked")
     public List<Person> listPerson() {
-        //TypedQuery<Person> query = sessionFactory.getCurrentSession().createQuery("from Person");
         return sessionFactory.getCurrentSession().createQuery("FROM Person ").list();
     }
 
