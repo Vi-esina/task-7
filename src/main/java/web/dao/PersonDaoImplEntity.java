@@ -12,7 +12,7 @@ import java.util.List;
 @Transactional
 public class PersonDaoImplEntity implements PersonDao {
 
-    @PersistenceContext(unitName = "entityManagerFactory")
+    @PersistenceContext
     private EntityManager entityManager;
 
     @Override
